@@ -14,11 +14,12 @@ $(function () {
   $image.cropper(options)
 
 
-
+  // 上传按钮点击事件。思路为点击按钮时设为点击隐藏的input type=file
   $('#upload').on('click', function () {
     $('#file').click()
   })
   $('#file').on('change', function (e) {
+    // e.target.files为一个伪数组
     const fileList = e.target.files
     if (fileList.length === 0) return layer.msg('请选择图片')
     const file = fileList[0]

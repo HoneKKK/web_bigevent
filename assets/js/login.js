@@ -32,6 +32,7 @@ $(function () {
       $('#link_login').click()
     })
   })
+  // 登录
   $('#form_login').submit(function (e) {
     e.preventDefault()
     $.ajax({
@@ -39,6 +40,7 @@ $(function () {
       method: 'POST',
       data: $(this).serialize(),
       success: res => {
+        console.log(res);
         if (res.status !== 0) return layer.msg('登录失败')
         layer.msg(res.message)
         localStorage.setItem('token', res.token)
